@@ -1,5 +1,6 @@
 shared/shoddyDB/Pair.class
 shared/shoddyDB/ConstraintBuilder$1.class
+shared/io/FileIO.class
 shared/shoddyDB/AbstractDB.class
 ex41/App.class
 shared/io/StdInputStreamReader.class
