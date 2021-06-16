@@ -8,12 +8,14 @@ package shared.io;
 import lombok.val;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Date;
 import java.util.List;
 
 public class FileIO {
@@ -45,6 +47,28 @@ public class FileIO {
          out.newLine();
       }
       out.close();
+   }
+   
+   public static void append(String path, String contents) throws IOException {
+      BufferedWriter out = new BufferedWriter(new FileWriter(path, true));
+      out.write(contents);
+      out.close();
+   }
+   
+   public static void append(String path, List<String> contents) throws IOException {
+      BufferedWriter out = new BufferedWriter(new FileWriter(path, true));
+      for (val line : contents) {
+         out.write(line);
+         out.newLine();
+      }
+      out.close();
+   }
+   
+   public static boolean touch(String path) throws IOException {
+      val file = new File(path);
+      return (file.exists()) ?
+         file.setLastModified(new Date().getTime()) :
+         file.createNewFile();
    }
    
 }

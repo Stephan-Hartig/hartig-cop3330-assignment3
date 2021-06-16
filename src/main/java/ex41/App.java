@@ -10,26 +10,23 @@ import shared.io.FileIO;
 import shared.io.InputOutput;
 
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.stream.Collectors;
 
 public class App {
    public static void main(String[] args) {
       try (InputOutput io = new InputOutput()) {
          /* Entry point. */
          
-         int a = 3;
-         val b = a;
-         
-         val sorted = FileIO
+         var sorted = FileIO
                .slurpLines("resources/exercise41_input.txt")
                .stream()
                .sorted()
-               .toList();
+               .collect(Collectors.toCollection(LinkedList::new));
          
-         //sorted.add(0, String.format("Total of %d names\n-----------------\n", sorted.size()));
+         sorted.add(0, String.format("Total of %d names\n-----------------", sorted.size()));
    
          FileIO.spit("resources/exercise41_output.txt", sorted);
-         
-         io.println("foobar");
          
       } catch (IOException e) {
          System.err.println(e);
