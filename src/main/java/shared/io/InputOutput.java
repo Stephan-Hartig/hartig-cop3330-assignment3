@@ -72,11 +72,11 @@ public class InputOutput implements Closeable {
     *
     * @return  Line of input.
     */
-   public String getLine(String def) {
+   public String getLine(String _default) {
       try { return this.in.readLine(); }
       catch (IOException e) {
          System.err.println(e.getMessage());
-         return def;
+         return _default;
       }
    }
    
@@ -95,29 +95,29 @@ public class InputOutput implements Closeable {
    /**
     * Prompt for a float, but return default value in case of no input.
     *
-    * @param msg     Message to display.
-    * @param def     Default value.
-    * @return        A float.
+    * @param msg        Message to display.
+    * @param _default   Default value.
+    * @return           A float.
     */
-   public float promptFloatDefaulting(String msg, float def) {
+   public float promptFloatDefaulting(String msg, float _default) {
       this.out.print(msg);
       this.out.flush();
-      try { return Integer.parseInt(this.in.readLine()); }
-      catch (NumberFormatException | IOException e) { return def; }
+      try { return Float.parseFloat(this.in.readLine()); }
+      catch (NumberFormatException | IOException e) { return _default; }
    }
    
    /**
     * Prompt for an int, but return default value in case of no input.
     *
-    * @param msg     Message to display.
-    * @param def     Default value.
-    * @return        An integer.
+    * @param msg        Message to display.
+    * @param _default   Default value.
+    * @return           An integer.
     */
-   public int promptIntDefaulting(String msg, int def) {
+   public int promptIntDefaulting(String msg, int _default) {
       this.out.print(msg);
       this.out.flush();
       try { return Integer.parseInt(this.in.readLine()); }
-      catch (NumberFormatException | IOException e) { return def; }
+      catch (NumberFormatException | IOException e) { return _default; }
    }
 
    /**
