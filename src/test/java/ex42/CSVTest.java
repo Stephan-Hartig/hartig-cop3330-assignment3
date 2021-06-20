@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 
 /**
  */
-public class AppTest {
+public class CSVTest {
    private static Stream<Arguments> params_csvToTable() {
       return Stream.of(
          Arguments.of(
