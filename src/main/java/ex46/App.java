@@ -16,12 +16,14 @@ public class App {
       try (InputOutput io = new InputOutput()) {
          /* Entry point. */
    
+         /* Logic + timing. */
+         
          long allStartTime = System.nanoTime();
    
          val text = FileIO.slurp("resources/macbeth.txt");
          
          long parseStartTime = System.nanoTime();
-         
+   
          val counts
             //= WordCounter.fromString(FileIO.slurp("resources/exercise46_input.txt"));
             = WordCounter.fromString(text);
@@ -29,6 +31,8 @@ public class App {
          long endTime = System.nanoTime();
          long durationAll = (endTime - allStartTime);  //divide by 1000000 to get milliseconds.
          long durationParse = (endTime - parseStartTime);
+         
+         /* Print everything out. */
    
          io.printf("There were %d unique words.\n", counts.size());
          
