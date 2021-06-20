@@ -6,6 +6,7 @@ package ex46;
  */
 
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Locale;
 import java.util.Map;
 import java.util.regex.MatchResult;

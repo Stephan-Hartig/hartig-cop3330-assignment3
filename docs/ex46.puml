@@ -1,0 +1,31 @@
+@startuml
+
+package shared.io {
+   class InputOutput {
+      print()
+      getLine()
+   }
+
+   class FileIO {
+      slurp()
+      spit()
+   }
+}
+
+package ex46 {
+   class App {
+      --
+      main()
+   }
+
+   class WordCounter {
+      fromString()
+   }
+}
+
+
+App --> InputOutput
+App --> FileIO
+App --> WordCounter
+
+@enduml

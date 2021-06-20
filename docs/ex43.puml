@@ -1,0 +1,42 @@
+@startuml
+
+package shared.io {
+   class InputOutput {
+      print()
+      getLine()
+   }
+
+   class FileIO {
+      slurp()
+      spit()
+   }
+}
+
+package java.* {
+   class File {
+      mkdir()
+   }
+}
+
+package ex43 {
+   class App {
+      --
+      main()
+   }
+
+   class WebsiteGenerator {
+      creationLog
+      --
+      createDir()
+      createFile()
+   }
+}
+
+
+App --> InputOutput
+App --> WebsiteGenerator
+
+WebsiteGenerator --> FileIO
+WebsiteGenerator --> File
+
+@enduml

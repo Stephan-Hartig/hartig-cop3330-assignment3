@@ -1,0 +1,31 @@
+@startuml
+
+package shared.io {
+   class FileIO {
+      {static} slurpLines()
+      {static} spit()
+   }
+}
+
+package java.* {
+   class Stream {
+      map()
+   }
+}
+
+package ex42 {
+   class App {
+      --
+      main()
+   }
+   class CSV {
+      {static} csvToTable()
+   }
+}
+
+
+App --> FileIO
+App --> CSV
+CSV --> Stream
+
+@enduml

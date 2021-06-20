@@ -19,19 +19,19 @@ import java.util.stream.Stream;
 
 public class FileIOTest {
    
-   final private String outputFilename = "test/tmp";
+   final private String outputFilename = "test-resources/tmp";
    
    
    
    private static Stream<Arguments> params_slurp() {
       return Stream.of(
-         Arguments.of("test/countdown3_multiLine_noTrailingNewline", "three\ntwo\none"),
-         Arguments.of("test/countdown3_multiLine_trailingNewline", "three\ntwo\none\n"),
-         Arguments.of("test/countdown3_padded3_multiLine_trailingNewline", "   three\n   two\n   one\n"),
-         Arguments.of("test/countdown3_multiLine_emptyLineBetween_trailingNewline", "three\n\ntwo\n\none\n"),
-         Arguments.of("test/countdown3_singleLine_noTrailingNewline", "three two one"),
-         Arguments.of("test/countdown3_singleLine_trailingNewline", "three two one\n"),
-         Arguments.of("test/empty3", "\n\n")
+         Arguments.of("test-resources/countdown3_multiLine_noTrailingNewline", "three\ntwo\none"),
+         Arguments.of("test-resources/countdown3_multiLine_trailingNewline", "three\ntwo\none\n"),
+         Arguments.of("test-resources/countdown3_padded3_multiLine_trailingNewline", "   three\n   two\n   one\n"),
+         Arguments.of("test-resources/countdown3_multiLine_emptyLineBetween_trailingNewline", "three\n\ntwo\n\none\n"),
+         Arguments.of("test-resources/countdown3_singleLine_noTrailingNewline", "three two one"),
+         Arguments.of("test-resources/countdown3_singleLine_trailingNewline", "three two one\n"),
+         Arguments.of("test-resources/empty3", "\n\n")
       );
    }
    @ParameterizedTest
@@ -47,13 +47,13 @@ public class FileIOTest {
    
    private static Stream<Arguments> params_slurpLines() {
       return Stream.of(
-         Arguments.of("test/countdown3_multiLine_noTrailingNewline",    new String[] {"three", "two", "one"}),
-         Arguments.of("test/countdown3_multiLine_trailingNewline",      new String[] {"three", "two", "one"}),
-         Arguments.of("test/countdown3_padded3_multiLine_trailingNewline",          new String[] {"   three", "   two", "   one"}),
-         Arguments.of("test/countdown3_multiLine_emptyLineBetween_trailingNewline", new String[] {"three", "", "two", "", "one"}),
-         Arguments.of("test/countdown3_singleLine_noTrailingNewline",   new String[] {"three two one"}),
-         Arguments.of("test/countdown3_singleLine_trailingNewline",     new String[] {"three two one"}),
-         Arguments.of("test/empty3", new String[] {"", ""})
+         Arguments.of("test-resources/countdown3_multiLine_noTrailingNewline",    new String[] {"three", "two", "one"}),
+         Arguments.of("test-resources/countdown3_multiLine_trailingNewline",      new String[] {"three", "two", "one"}),
+         Arguments.of("test-resources/countdown3_padded3_multiLine_trailingNewline",          new String[] {"   three", "   two", "   one"}),
+         Arguments.of("test-resources/countdown3_multiLine_emptyLineBetween_trailingNewline", new String[] {"three", "", "two", "", "one"}),
+         Arguments.of("test-resources/countdown3_singleLine_noTrailingNewline",   new String[] {"three two one"}),
+         Arguments.of("test-resources/countdown3_singleLine_trailingNewline",     new String[] {"three two one"}),
+         Arguments.of("test-resources/empty3", new String[] {"", ""})
       );
    }
    @ParameterizedTest

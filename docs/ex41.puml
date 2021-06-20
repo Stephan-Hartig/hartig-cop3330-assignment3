@@ -1,0 +1,26 @@
+@startuml
+
+package shared.io {
+   class FileIO {
+      {static} slurpLines()
+      {static} spit()
+   }
+}
+
+package java.* {
+   class Stream {
+      sort()
+   }
+}
+
+package ex41 {
+   class App {
+      main()
+   }
+}
+
+
+App --> FileIO
+App --> Stream
+
+@enduml

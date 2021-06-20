@@ -1,0 +1,27 @@
+@startuml
+
+package shared.io {
+   class FileIO {
+      slurp()
+      spit()
+   }
+}
+
+package ex45 {
+   class App {
+      --
+      main()
+   }
+}
+
+package java.* {
+   class String {
+      replaceAll()
+   }
+}
+
+
+App --> FileIO
+App --> String
+
+@enduml

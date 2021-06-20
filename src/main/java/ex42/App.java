@@ -12,6 +12,7 @@ import shared.io.InputOutput;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class App {
@@ -35,9 +36,9 @@ public class App {
    
    
          FileIO.spit("resources/exercise42_output.txt", table);
-   
       } catch (IOException e) {
          System.err.println(e);
       }
    }
+   
 }

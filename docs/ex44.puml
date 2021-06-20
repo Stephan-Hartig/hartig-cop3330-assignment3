@@ -1,0 +1,58 @@
+@startuml
+
+package shared.io {
+   class InputOutput {
+      print()
+      getLine()
+   }
+
+   class FileIO {
+      slurp()
+      spit()
+   }
+}
+
+package com.google {
+   class Gson {}
+}
+
+package ex44 {
+   class App {
+      --
+      main()
+   }
+
+   package product {
+      class Product {
+         name
+         price
+         quantity
+      }
+      class ProductDB {
+         filename
+         --
+         has()
+         get()
+         put()
+      }
+      class ProductParser {
+         fromJson()
+         toJson()
+      }
+   }
+}
+
+
+App --> InputOutput
+App --> ProductDB
+
+ProductDB --> ProductParser
+ProductDB --> Product
+ProductDB --> FileIO
+
+ProductParser --> Gson
+ProductParser -- Product
+Gson          -- Product
+
+
+@enduml

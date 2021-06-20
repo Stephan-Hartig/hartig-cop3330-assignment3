@@ -18,7 +18,7 @@ public class App {
          FileIO.spit(
             Paths.get("resources", io.promptTrimmed("Output file name? ")).toString(),
             FileIO.slurp("resources/exercise45_input.txt")
-               .replaceAll("utilize", "use")
+               .replaceAll("utilize", "use") // Utilize "\\butilize\\b" to _only_ replace whole words.
          );
          
       } catch (IOException e) {
