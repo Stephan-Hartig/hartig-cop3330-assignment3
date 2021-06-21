@@ -14,8 +14,10 @@ import java.util.regex.Pattern;
 
 public class WordCounter {
    public static Map<String, Integer> fromString(String str) {
+      /* Lowercase words are keys, count is value. */
       Map<String, Integer> counts = new HashMap<>();
    
+      /* To lowercase -> split by word -> increment map value for each word. */
       Pattern.compile("\\b[a-zA-Z]+\\b")
          .matcher(str.toLowerCase(Locale.ROOT))
          .results()

@@ -18,14 +18,17 @@ public class App {
       try (InputOutput io = new InputOutput()) {
          /* Entry point. */
          
+         /* Slurp input-file into a list and sort the list. */
          var sorted = FileIO
                .slurpLines("resources/exercise41_input.txt")
                .stream()
                .sorted()
                .collect(Collectors.toCollection(LinkedList::new));
          
+         /* Prepend the header to the list. */
          sorted.add(0, String.format("Total of %d names\n-----------------", sorted.size()));
    
+         /* Spit into output-file. */
          FileIO.spit("resources/exercise41_output.txt", sorted);
          
       } catch (IOException e) {

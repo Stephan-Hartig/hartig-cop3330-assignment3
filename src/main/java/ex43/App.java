@@ -17,6 +17,7 @@ public class App {
       try (InputOutput io = new InputOutput()) {
          /* Entry point. */
    
+         /* Get the website metadata. */
          val name = io.promptTrimmed("Site name: ");
          val author = io.promptTrimmed("Author: ");
          val createJsFolder = io
@@ -28,12 +29,14 @@ public class App {
             .toLowerCase(Locale.ROOT)
             .equals("y");
    
+         /* Generate website. */
          val project = new WebsiteGenerator(name, author);
          if (createJsFolder)
             project.createDir("js");
          if (createCssFolder)
             project.createDir("css");
 
+         /* Print log. */
          project
             .getCreationLog()
             .stream()

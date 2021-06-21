@@ -67,6 +67,7 @@ public class WebsiteGenerator {
    }
    
    public void createFile(String filename) throws IOException {
+      /* Copy and paste the template, replacing any $VARIABLES. */
       val fullPath = this.getFullPath(filename);
       FileIO.spit(fullPath,
          FileIO

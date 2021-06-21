@@ -11,29 +11,37 @@ import shared.io.InputOutput;
 
 import java.io.IOException;
 
+/*
+ * We could create a method for the bench, but doing so is annoying in
+ * static languages, and I really don't want to add a library just for it.
+ */
+
 public class App {
    public static void main(String[] args) {
       try (InputOutput io = new InputOutput()) {
          /* Entry point. */
    
-         /* Logic + timing. */
-         
+   
+         /* Start benchmark. */
          long allStartTime = System.nanoTime();
    
+         /* Slurp file. */
          val text = FileIO.slurp("resources/macbeth.txt");
-         
-         long parseStartTime = System.nanoTime();
    
+         /* Start benchmark. */
+         long parseStartTime = System.nanoTime();
+  
+         /* Count words. */
          val counts
             //= WordCounter.fromString(FileIO.slurp("resources/exercise46_input.txt"));
             = WordCounter.fromString(text);
          
+         /* End both benchmarks. */
          long endTime = System.nanoTime();
          long durationAll = (endTime - allStartTime);  //divide by 1000000 to get milliseconds.
          long durationParse = (endTime - parseStartTime);
          
-         /* Print everything out. */
-   
+         /* Print word frequencies. */
          io.printf("There were %d unique words.\n", counts.size());
          
          counts.entrySet()
@@ -44,6 +52,7 @@ public class App {
                io.println("*".repeat(pair.getValue()));
             });
    
+         /* Print benchmark results. */
          io.printf("It took %.2f milliseconds to slurp + parse.\n", durationAll / 1000000.0);
          io.printf("It took %.2f milliseconds to parse.\n", durationParse / 1000000.0);
       } catch (IOException e) {
